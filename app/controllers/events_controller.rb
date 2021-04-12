@@ -12,7 +12,8 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    #@event = Event.new
+    @event = current_user.events.build
   end
 
   # GET /events/1/edit
@@ -21,7 +22,8 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
+    #@event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     respond_to do |format|
       if @event.save
@@ -64,6 +66,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:description, :event_date)
+      params.require(:event).permit(:description, :event_date, :user_id)
     end
 end
