@@ -1,26 +1,24 @@
 <% @events.each do | event | %>
     <div class="box">
         <article class="media">
-            <div class="media-left">
-                <figure class="image is-64x64">
-                   
-                </figure>
-            </div>
+           
             <div class="media-content">
                 <div class="content">
-                    
-                        <strong><%= event.user.email %></strong><br/>
-                  
-                      <strong> Log in to join event</strong>
-                  
-                  <p><%= event.description %></p>
-                    <p><%= event.event_date %></p>
+                    <p>
+                        <strong>Organizer</strong> <br> <%= event.user.email %>
+                    </p>
+                    <p>
+                        <strong>Description</strong> <br> <%= event.description %>
+                    </p>
+                    <p>
+                        <strong>Event Date</strong> <br> <%= event.event_date %>
+                    </p>
                 </div>
           
                 <nav class="level">
                     <div class="level-left is-mobile">
                         <%= link_to event, class: "level-item" do %>
-                          <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+                          <span class="icon"><i class="fa fa-address-book" aria-hidden="true"></i></span>
                         <% end %>
                         <%= link_to edit_event_path(event), class: "level-item" do %>
                           <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
