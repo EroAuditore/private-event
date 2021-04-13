@@ -2,10 +2,11 @@
   <div class="container">
     <div class="columns">
       <div class="column is-one-quarter">
-        
+      <%= link_to 'New Event', new_event_path, class: "button is-primary "  %>
       </div>
       <div class="column is-half">
          <%= render partial: 'feed' %>
+         
         
       </div>
       <div class="column is-one-quarter">
@@ -20,7 +21,7 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+
 
 </section>
 
