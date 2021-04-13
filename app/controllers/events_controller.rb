@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = current_user.events.all
+    @events = Event.all
   end
 
   # GET /events/1 or /events/1.json
@@ -12,8 +12,8 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    #@event = Event.new
-    @event = current_user.events.build
+    @event = Event.new
+    # @event = current_user.events.build
   end
 
   # GET /events/1/edit
