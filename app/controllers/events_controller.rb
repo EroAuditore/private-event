@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    @atndanceUsers = Attendance.where("event_id = ?", params[:id])
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
@@ -64,12 +64,9 @@ class EventsController < ApplicationController
   def join
 
     @event = Event.find(params[:id])
-    @attendance = Attendance.new
-    @attendance.user_id = current_user.id
-    @attendance.event_id = params[:id]
-
+    @event.users << current_user
     respond_to do |format|
-      if @attendance.save
+      if @event.save
         format.html { redirect_to @event, notice: "Event was successfully joined." }
         format.json { render :show, status: :created, location: @event }
       else
@@ -82,8 +79,7 @@ class EventsController < ApplicationController
 
   #events from user
   def user_events
-    @events = Attendance.includes(:event).where("user_id = ?", current_user.id)
-    
+    @events = current_user.events
   end
 
   private

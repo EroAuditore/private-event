@@ -1,7 +1,7 @@
 <nav class="panel is-primary">
           <p class="panel-heading">Attendees</p>
 
-          <% @atndanceUsers.each do | attendee | %>
+          <% @event.users.each do | attendee | %>
                 <div class="panel-block">
                     <article class="media">
                         <div class="media-left">
@@ -11,7 +11,7 @@
                         </div>
                         <div class="media-content">
                         <div class="content">
-                            <strong><%= attendee.user.email %> </strong><br>
+                            <strong><%= attendee.email %> </strong><br>
                         </div>
                         </div>
                     </article>
