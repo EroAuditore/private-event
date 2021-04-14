@@ -64,13 +64,10 @@ class EventsController < ApplicationController
   def join
 
     @event = Event.find(params[:id])
-    #@event.attendance.include?(current_user)
-    
     @attendance = Attendance.new
     @attendance.user_id = current_user.id
     @attendance.event_id = params[:id]
 
-    #redirect_to @event
     respond_to do |format|
       if @attendance.save
         format.html { redirect_to @event, notice: "Event was successfully joined." }
@@ -85,7 +82,8 @@ class EventsController < ApplicationController
 
   #events from user
   def user_events
-    @events = current_user.events.all
+    @events = Attendance.includes(:event).where("user_id = ?", current_user.id)
+    
   end
 
   private
