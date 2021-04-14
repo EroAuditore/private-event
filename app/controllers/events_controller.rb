@@ -9,7 +9,9 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    @attendees = User.all
+    
+    @atndanceUsers = Attendance.where("event_id = ?", params[:id])
+   
   end
 
   # GET /events/new
@@ -58,6 +60,29 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  #join event with current user
+  def join
+
+    @event = Event.find(params[:id])
+    #@event.attendance.include?(current_user)
+    
+    @attendance = Attendance.new
+    @attendance.user_id = current_user.id
+    @attendance.event_id = params[:id]
+
+    #redirect_to @event
+    respond_to do |format|
+      if @attendance.save
+        format.html { redirect_to @event, notice: "Event was successfully joined." }
+        format.json { render :show, status: :created, location: @event }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   private
