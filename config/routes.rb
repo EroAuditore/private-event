@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   
   root "events#index"
   
-  #get 'event/join', action: :join, controller: 'events'
+  #get 'user_event', action: :user_events, controller: 'events'
+  
   resources :events do
     member do
       get 'join'
       get 'cancel_join'
+      get 'user', action: :user_events, controller: 'events'
+      #get 'user', to: 'events#user_events'
     end
   end
 end

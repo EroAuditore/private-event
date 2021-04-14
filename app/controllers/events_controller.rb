@@ -9,9 +9,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    
     @atndanceUsers = Attendance.where("event_id = ?", params[:id])
-   
   end
 
   # GET /events/new
@@ -26,7 +24,7 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    #@event = Event.new(event_params)
+    
     @event = current_user.events.build(event_params)
 
     respond_to do |format|
@@ -83,6 +81,11 @@ class EventsController < ApplicationController
       end
     end
 
+  end
+
+  #events from user
+  def user_events
+    @events = current_user.events.all
   end
 
   private
