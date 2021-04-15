@@ -14,8 +14,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
-    # @event = current_user.events.build
+     @event = current_user.events.build
   end
 
   # GET /events/1/edit
@@ -25,7 +24,8 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
     
-    @event = current_user.events.build(event_params)
+    @event = Event.build(event_params)
+    @event.user_id = current_user.id
 
     respond_to do |format|
       if @event.save
@@ -62,7 +62,6 @@ class EventsController < ApplicationController
 
   #join event with current user
   def join
-
     @event = Event.find(params[:id])
     @event.users << current_user
     respond_to do |format|
@@ -85,11 +84,11 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = current_user.event.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:description, :event_date, :user_id)
+      params.require(:event).permit(:description, :event_date)
     end
 end

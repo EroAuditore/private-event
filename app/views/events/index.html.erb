@@ -1,17 +1,18 @@
 <section class="section">
   <div class="container">
     <div class="columns">
-      <div class="column is-one-quarter">
-      <%= link_to 'New Event', new_event_path, class: "button is-primary "  %>
+     
+      <div class="column is-half">
+        <h2>Previous events</h2>
+         <%= render partial: 'previous' %>
+        
       </div>
       <div class="column is-half">
-        
-         <%= render partial: 'feed' %>
+        <h2>Upcomming events</h2>
+         <%= render partial: 'upcoming' %>
         
       </div>
-      <div class="column is-one-quarter">
       
-      </div>
     </div>
   </div>
 
