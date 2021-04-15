@@ -9,12 +9,13 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    @event = Event.find(params[:id])
+    @atndanceUsers = Attendance.where("event_id = ?", params[:id])
   end
 
   # GET /events/new
   def new
-     @event = current_user.events.build
+    @event = Event.new
+    # @event = current_user.events.build
   end
 
   # GET /events/1/edit
@@ -23,9 +24,11 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-   
+    
     @event = current_user.events.build(event_params)
     @event.user_id = current_user.id
+
+
 
     respond_to do |format|
       if @event.save
@@ -62,10 +65,14 @@ class EventsController < ApplicationController
 
   #join event with current user
   def join
+
     @event = Event.find(params[:id])
-    @event.users << current_user
+    @attendance = Attendance.new
+    @attendance.user_id = current_user.id
+    @attendance.event_id = params[:id]
+
     respond_to do |format|
-      if @event.save
+      if @attendance.save
         format.html { redirect_to @event, notice: "Event was successfully joined." }
         format.json { render :show, status: :created, location: @event }
       else
@@ -78,7 +85,9 @@ class EventsController < ApplicationController
 
   #events from user
   def user_events
-    @events = current_user.events
+    @events = current_user.user_events
+
+    
   end
 
   private
@@ -89,6 +98,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:description, :event_date)
+      params.require(:event).permit(:description, :event_date, :user_id)
     end
 end
