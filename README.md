@@ -1,24 +1,48 @@
-# README
+## Event planner
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Event planner which allows users to create events and then manage user signups. Users can create events and assist an event
 
-Things you may want to cover:
+Built With
+Ruby on Rails
+Ruby
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+To get a local copy of the repository please run the following commands on your terminal:
 
-* Configuration
+$ cd folder-name
 
-* Database creation
+> git clone git@github.com:EroAuditore/secreet_keeper.git
 
-* Database initialization
+- $ cd secreet_keeper
+- $ bundle install
+- $ rails db:migrate
+- $ yarn install --check-files
 
-* How to run the test suite
+## Authors
 
-* Services (job queues, cache servers, search engines, etc.)
+👤 Eduardo Rodriguez
 
-* Deployment instructions
+Github: @EroAuditore
+Linkedin: EroAuditore
 
-* ...
+👤 Chukwuma Obasi
+
+GitHub: @ccobasi
+LinkedIn: chukwuma-obasi
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+
+Contributing
+Contributions, issues and feature requests are welcome! Start by:
+
+Forking the project
+Cloning the project to your local machine
+cd into the project directory
+Run git checkout -b your-branch-name
+Make your contributions
+Push your branch up to your forked repository
+Open a Pull Request with a detailed description to the development branch of the original project for a review
+Show your support
+Give a ⭐️ if you like this project
