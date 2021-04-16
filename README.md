@@ -4,9 +4,11 @@
 
 Event planner application which allows users to create events and then manage user signups. Users can create events and assist an event
 
-Built With
-Ruby on Rails
-Ruby
+## Built With
+
+- Ruby 
+- Ruby on Rails
+- Devise gem
 
 ## Getting Started
 
@@ -33,18 +35,22 @@ Linkedin: EroAuditore
 GitHub: @ccobasi
 LinkedIn: chukwuma-obasi
 
-🤝 Contributing
+## 🤝 Contributing
+
 Contributions, issues, and feature requests are welcome!
 
-Contributing
+# Contributing
+
 Contributions, issues and feature requests are welcome! Start by:
 
-Forking the project
-Cloning the project to your local machine
-cd into the project directory
-Run git checkout -b your-branch-name
-Make your contributions
-Push your branch up to your forked repository
-Open a Pull Request with a detailed description to the development branch of the original project for a review
-Show your support
+- Forking the project
+- Cloning the project to your local machine
+- cd into the project directory
+- Run git checkout -b your-branch-name
+- Make your contributions
+- Push your branch up to your forked repository
+- Open a Pull Request with a detailed description to the development branch of the original project for a review
+
+## Show your support
+
 Give a ⭐️ if you like this project
