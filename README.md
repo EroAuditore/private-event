@@ -12,9 +12,9 @@ To get a local copy of the repository please run the following commands on your 
 
 $ cd folder-name
 
-> git clone git@github.com:EroAuditore/secreet_keeper.git
+> git clone https://github.com/EroAuditore/private-event.git
 
-- $ cd secreet_keeper
+- $ cd private-event
 - $ bundle install
 - $ rails db:migrate
 - $ yarn install --check-files
