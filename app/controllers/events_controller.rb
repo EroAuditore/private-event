@@ -3,8 +3,9 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   # GET /events or /events.json
   def index
-    @events = Event.all
-
+    @previous = Event.find_previous
+    @upcoming = Event.find_upcoming
+    
   end
 
   # GET /events/1 or /events/1.json
