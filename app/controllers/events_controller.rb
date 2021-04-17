@@ -10,7 +10,8 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    @atndanceUsers = Attendance.where("event_id = ?", params[:id])
+    # @atndanceUsers = Attendance.where("event_id = ?", params[:id])
+    @events = current_user.user_events 
   end
 
   # GET /events/new
@@ -86,9 +87,7 @@ class EventsController < ApplicationController
 
   #events from user
   def user_events
-    @events = current_user.user_events
-
-    
+    @events = current_user.user_events 
   end
 
   private
