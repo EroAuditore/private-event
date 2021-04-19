@@ -7,7 +7,7 @@ class Event < ApplicationRecord
 
     def self.find_upcoming
         upcoming.order('created_at DESC')
-      end
+    end
     
     def self.find_previous
       previous.order('created_at DESC')
