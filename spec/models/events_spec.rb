@@ -6,7 +6,7 @@ RSpec.describe Event, type: :model do
   let(:password) { '123456' }
   describe 'An event can be created by a user and if it has all the validations' do
     it 'belongs to a user' do
-      user = User.create(email: 'user3', password: '1234567')
+      user = User.create(email: 'user3@mail.com', password: '1234567')
       event = Event.create(user_id: user.id, description: 'description of the event', creator_id: user.id)
 
       expect(event.user_id).to eq(user.id)

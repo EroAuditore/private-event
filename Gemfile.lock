@@ -294,7 +294,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   bulma-rails (~> 0.9.1)
   byebug
-  capybara (>= 3.26)
+  capybara
   database_cleaner
   devise (~> 4.7, >= 4.7.3)
   gravatar_image_tag (~> 1.2)
