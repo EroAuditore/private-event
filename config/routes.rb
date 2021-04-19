@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   root "events#index"
   
-  #get 'user_event', action: :user_events, controller: 'events'
+  get 'user_event', action: :show, controller: 'users'
   
   resources :events do
     member do

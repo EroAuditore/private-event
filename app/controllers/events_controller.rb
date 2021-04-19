@@ -10,7 +10,6 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    # @atndanceUsers = Attendance.where("event_id = ?", params[:id])
     @events = current_user.user_events 
   end
 
