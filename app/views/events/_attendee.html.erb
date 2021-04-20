@@ -1,0 +1,22 @@
+<nav class="panel is-primary">
+          <p class="panel-heading">Attendees</p>
+
+          <% @event.users.each do | attendee | %>
+                <div class="panel-block">
+                    <article class="media">
+                        <div class="media-left">
+                        <figure class="image is-64x64">
+                           
+                        </figure>
+                        </div>
+                        <div class="media-content">
+                        <div class="content">
+                            <strong><%= attendee.email %> </strong><br>
+                        </div>
+                        </div>
+                    </article>
+                </div>
+            <% end %>
+              
+      
+</nav>
